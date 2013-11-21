@@ -2,12 +2,18 @@
 <html>
     <head>
         <script src='app/core/app.js'></script>
+        <script src='app/core/app-polyfills.js'></script>
+        <script src='app/config/app.js'></script>
     </head>
     <body>
+        <!-- The HTML5-Bar -->
         <section class='appModule HTML5-bar' 
             data-moduletype='HTML5-bar'
             data-css='true' 
             data-html='true'></section>
+        
+        
+        <!-- An example webcam implementation using the HTML5-Bar -->    
         <section class='appModule webcam' 
             data-moduletype='webcam'
             data-css='true' 

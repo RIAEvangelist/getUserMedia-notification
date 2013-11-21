@@ -5,23 +5,32 @@
         navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia ||
                                   navigator.mozGetUserMedia || navigator.msGetUserMedia;
         function loadWebcam(localMediaStream) {
+            app.trigger('HTML5-bar-hide');
             window.a=localMediaStream;
-            console.log(window.URL.createObjectURL(localMediaStream));
             var video = document.querySelector('video');
             video.src = window.URL.createObjectURL(localMediaStream);
         }
         
         function loadError(e) {
-            document.getElementById('webcam-required').style.display='block';
-            
             if(typeof e=='string'){
-                document.getElementById('webcam-required').innerHTML=e;
+                app.trigger('HTML5-bar-error', e);
                 return;
             }
             
-            document.getElementById('webcam-required').innerText='Error connecting to webcam';
+            e='Error connecting to webcam';
+            app.trigger('HTML5-bar-error', e);
         }
         
+        function showHTML5bar(){
+            if(app.exists('HTML5-bar-show')){
+                app.trigger(
+                    'HTML5-bar-show'
+                );
+                return;
+            }
+            
+            setTimeout(showHTML5bar,100)
+        }
         function render(el){
             navigator.getUserMedia(
                 {
@@ -36,6 +45,8 @@
                 loadWebcam,
                 loadError
             );
+            
+            showHTML5bar();
         }
         
         exports(moduleName,render);    
