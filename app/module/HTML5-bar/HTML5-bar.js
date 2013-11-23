@@ -23,6 +23,16 @@
                 data=defaults;
             }
             
+            bar.style.lineHeight=(
+                data.lineHeight||
+                defaults.lineHeight
+            )+'px';
+            
+            bar.style.fontSize=(
+                data.fontSize||
+                defaults.fontSize
+            )+'px';
+            
             if(!hasMedia){
                 errorBar(
                     (

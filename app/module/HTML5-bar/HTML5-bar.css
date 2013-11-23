@@ -8,6 +8,7 @@
     font-family:helvetica, arial, verdana;
     line-height:100px;
     background:rgba(200,200,50,.75);
+    overflow:hidden;
 }
 
 .HTML5-bar-error{
@@ -19,10 +20,15 @@
     display:none;
 }
 
+.HTML5-bar-callout{
+    height:100%;
+}
+
 .HTML5-bar-callout > img,
 .HTML5-bar-callout > div {
     float: left;
     padding: 0 10px;
+    height:100%;
 }
 
 .HTML5-bar-arrow-left{
