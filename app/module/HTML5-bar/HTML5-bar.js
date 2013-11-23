@@ -14,7 +14,11 @@
         }
         
         function showBar(data){
+            console.log('showing;');
             var defaults=app.data['HTML5-bar'].defaults;
+            var barIcons=false;
+            var barArrow='up';
+            
             if(!data){
                 data=defaults;
             }
@@ -29,20 +33,38 @@
                 return;
             }
             
-            bar.style.backgroundColor='rgba(200,200,50,.75)';
+            barIcons=app.data.imagePath+'icons/HTML5-bar-';
+            
+            bar.querySelector('.HTML5-bar-message')[app.normalize.innerText]=(
+                data.message||
+                defaults.message
+            );
+            
+            bar.querySelector('.HTML5-bar-arrow-up').src=barIcons+'up.png';
+            bar.querySelector('.HTML5-bar-arrow-left').src=barIcons+'left.png';
+            bar.querySelector('.HTML5-bar-type').src=barIcons+(
+                data.type||
+                defaults.type
+            )+'.png';
+            
+            if(!navigator.userAgent.match(
+                    /webkit|chrome|safari|iphone|android|mobile/i
+                )
+            ){
+                barArrow='left';
+            }
+            
+            bar.querySelector('.HTML5-bar-arrow-'+barArrow).classList.remove('HTML5-bar-hide')
         }
         
         
         function errorBar(error){
-            bar.style.backgroundColor='rgba(200,50,50,.75)';
-            bar.innerHTML='';
-            bar.style.fontSize   = '20px';
-            bar.style.textAlign  = 'center';
-            bar.innerText=error;
+            bar.classList.add('HTML5-bar-error');
+            bar.querySelector('.HTML5-bar-message')[app.normalize.innerText]=error;
         }
         
         function hideBar(){
-            bar.style.backgroundColor='rgba(20,80,200,.75)';
+            bar.classList.add('HTML5-bar-hide');
         }
         
         exports(moduleName,render);

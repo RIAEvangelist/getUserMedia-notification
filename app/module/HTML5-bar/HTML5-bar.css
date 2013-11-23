@@ -4,4 +4,31 @@
     left:0;
     width:100%;
     height:100px;
+    font-size:30px;
+    font-family:helvetica, arial, verdana;
+    line-height:100px;
+    background:rgba(200,200,50,.75);
+}
+
+.HTML5-bar-error{
+    background:rgba(200, 50, 50, 0.75);
+}
+
+.HTML5-bar-error .HTML5-bar-arrow-up,
+.HTML5-bar-error .HTML5-bar-arrow-left{
+    display:none;
+}
+
+.HTML5-bar-callout > img,
+.HTML5-bar-callout > div {
+    float: left;
+    padding: 0 10px;
+}
+
+.HTML5-bar-arrow-left{
+    margin-left:500px;
+}
+
+.HTML5-bar-hide{
+    display:none;
 }
