@@ -36,7 +36,11 @@
                 loadError
             );
             
-            app.data["HTML5-bar"].show();
+            app.data["HTML5-bar"].show(
+                {
+                    message:'Please allow webcam access.'
+                }    
+            );
         }
         
         exports(moduleName,render);    

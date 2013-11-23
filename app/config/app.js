@@ -8,20 +8,22 @@ app.data["HTML5-bar"]={
         lineHeight  : 100,
         fontSize    : 30
     },
-    show : function(){
+    show : function(options){
         if(app.exists('HTML5-bar-show')){
             setTimeout(
                 function(){
                     app.trigger(
                         'HTML5-bar-show',
-                        {
-                            message:'Please allow webcam access.'
-                        }
+                        options
                     );
                 },100
             );
             return;
         }
-        setTimeout(showHTML5bar,100)
+        (
+            function(){
+                setTimeout(app.data["HTML5-bar"].show(options),100)
+            }
+        )(options);
     }
 }
