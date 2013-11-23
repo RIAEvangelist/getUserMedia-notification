@@ -7,5 +7,21 @@ app.data["HTML5-bar"]={
         type        : 'video',
         lineHeight  : 100,
         fontSize    : 30
+    },
+    show : function(){
+        if(app.exists('HTML5-bar-show')){
+            setTimeout(
+                function(){
+                    app.trigger(
+                        'HTML5-bar-show',
+                        {
+                            message:'Please allow webcam access.'
+                        }
+                    );
+                },100
+            );
+            return;
+        }
+        setTimeout(showHTML5bar,100)
     }
 }
