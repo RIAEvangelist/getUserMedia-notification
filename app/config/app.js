@@ -2,7 +2,7 @@ app.data.imagePath='app/img/';
 
 app.data["HTML5-bar"]={
     defaults:{
-        notHTML5    : 'This browser is not HTML5 Compliant, or is blocking HTML5 Audio/Video',
+        notHTML5    : 'Your browser is not HTML5 compliant Audio/Video access denied.',
         message     : 'Please allow access',
         type        : 'video',
         lineHeight  : 100,
