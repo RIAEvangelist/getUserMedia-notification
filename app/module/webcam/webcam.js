@@ -3,7 +3,11 @@
         var moduleName='webcam';
         window.URL = window.URL || window.webkitURL;
         navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia ||
-                                  navigator.mozGetUserMedia || navigator.msGetUserMedia;
+                                  navigator.mozGetUserMedia || navigator.msGetUserMedia || 
+                                  function(){
+                                      loadError();
+                                  };
+        
         function loadWebcam(localMediaStream) {
             app.trigger('HTML5-bar-hide');
             window.a=localMediaStream;

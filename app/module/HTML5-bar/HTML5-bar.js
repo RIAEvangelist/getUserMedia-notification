@@ -3,7 +3,12 @@
         var moduleName='HTML5-bar';
         var bar=false;
         var hasMedia = false;
-        
+        navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia ||
+                                  navigator.mozGetUserMedia || navigator.msGetUserMedia || 
+                                  function(){
+                                      errorBar();
+                                  };
+                                  
         function render(el){
             hasMedia = ( navigator.getUserMedia ||
                        navigator.webkitGetUserMedia ||
